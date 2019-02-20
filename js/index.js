@@ -1,11 +1,28 @@
 import Canvas from '/js/utility/Canvas.js'
 import MovingObject from '/js/classes/movingObject.js'
 
-const movingObject = new MovingObject({ x:100, y:100 }, { x:1, y:1 });
+const { cos, sin } = Math
+
+const MIN_ASTEROIDS = 10;
+const asteroids = [];
+let angle = 0;
+
+while(asteroids.length < MIN_ASTEROIDS) {
+  const x = cos(angle);
+  const y = sin(angle);
+
+  asteroids.push(new MovingObject({ x:100, y:100 }, { x, y }))
+  angle += .1;
+};
+
 
 requestAnimationFrame(function step() {
   Canvas.clear();
-  movingObject.move();
-  movingObject.draw();
+
+  asteroids.forEach(asteroid => {
+    asteroid.move();
+    asteroid.draw();
+  })
+
   requestAnimationFrame(step);
 });
