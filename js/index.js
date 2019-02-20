@@ -3,7 +3,7 @@ import MovingObject from '/js/classes/movingObject.js'
 
 const { cos, sin } = Math
 
-const MIN_ASTEROIDS = 10;
+const MIN_ASTEROIDS = 200;
 const asteroids = [];
 let angle = 0;
 
@@ -11,7 +11,7 @@ while(asteroids.length < MIN_ASTEROIDS) {
   const x = cos(angle);
   const y = sin(angle);
 
-  asteroids.push(new MovingObject({ x:100, y:100 }, { x, y }))
+  asteroids.push(MovingObject.createRandom())
   angle += .1;
 };
 
