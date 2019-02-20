@@ -9,3 +9,15 @@ html, body {
   width: 100%;
   background: black;
 }
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+canvas {
+    width: 500px;
+    height: 500px;
+    border: 2px solid white;
+}
