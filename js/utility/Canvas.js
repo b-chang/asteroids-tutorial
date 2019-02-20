@@ -1,3 +1,5 @@
+import BoundingBox from '/js/utility/boundingBox.js'
+
 const canvas = document.getElementById('canvas-stage')
 const context = canvas.getContext('2d')
 
@@ -14,7 +16,12 @@ export default {
         context.closePath()
         context.stroke()
     },
+
     clear() {
       context.clearRect(0,0,500,500)
+    },
+
+    getBoundingBox() {
+      return new BoundingBox({x:0, y:0}, {x:500, y:500});
     }
 }

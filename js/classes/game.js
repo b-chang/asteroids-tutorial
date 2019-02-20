@@ -1,7 +1,7 @@
 import Canvas from '/js/utility/Canvas.js'
 import MovingObject from '/js/classes/movingObject.js'
 
-const MIN_ASTEROIDS = 200;
+const MIN_ASTEROIDS = 10;
 
 export default class Game {
   constructor() {
@@ -31,6 +31,7 @@ export default class Game {
     Canvas.clear();
     this.ensureMinAsteroids();
     this.move();
+    this.removeOutOfBounds();
     this.draw();
 
     requestAnimationFrame(this.step)
@@ -39,5 +40,11 @@ export default class Game {
   start() {
     this.step();
   };
+
+  removeOutOfBounds() {
+    this.asteroids = this.asteroids.filter(asteroid => {
+      return !asteroid.isOutOfBounds();
+    })
+  }
 
 };

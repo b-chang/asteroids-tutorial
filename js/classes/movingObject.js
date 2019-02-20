@@ -1,4 +1,5 @@
 import Canvas from '/js/utility/Canvas.js'
+import BoundingBox from '/js/utility/boundingBox.js'
 
 const { random, PI, cos, sin } = Math;
 const MAX_SPEED = 2;
@@ -24,6 +25,18 @@ export default class MovingObject {
       y: this.position.y,
       radius: this.radius
     })
+  }
+
+  isOutOfBounds() {
+    const canvasBB = Canvas.getBoundingBox();
+    return !this.getBoundingBox().intersects(canvasBB);
+  }
+
+  getBoundingBox() {
+    return new BoundingBox(
+      { x:this.position.x-this.radius, y:this.position.y-this.radius },
+      { x:this.position.x+this.radius, y:this.position.y+this.radius }
+    );
   }
 
   static createRandom() {
