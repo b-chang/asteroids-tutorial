@@ -1,4 +1,4 @@
-import BoundingBox from '/js/utility/boundingBox.js'
+import BoundingBox from '/asteroids-tutorial/js/utility/boundingBox.js'
 
 const canvas = document.getElementById('canvas-stage')
 const context = canvas.getContext('2d')

@@ -1,5 +1,5 @@
-import Canvas from '/js/utility/Canvas.js'
-import BoundingBox from '/js/utility/boundingBox.js'
+import Canvas from '/asteroids-tutorial/js/utility/Canvas.js'
+import BoundingBox from '/asteroids-tutorial/js/utility/boundingBox.js'
 
 const { random, PI, cos, sin } = Math;
 const MAX_SPEED = 2;

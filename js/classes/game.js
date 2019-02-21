@@ -1,7 +1,7 @@
-import Canvas from '/js/utility/Canvas.js'
-import MovingObject from '/js/classes/movingObject.js'
+import Canvas from '/asteroids-tutorial/js/utility/Canvas.js'
+import MovingObject from '/asteroids-tutorial/js/classes/movingObject.js'
 
-const MIN_ASTEROIDS = 10;
+const MIN_ASTEROIDS = 1;
 
 export default class Game {
   constructor() {

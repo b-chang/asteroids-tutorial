@@ -1,4 +1,4 @@
-import Game from '/js/classes/Game.js'
+import Game from '/asteroids-tutorial/js/classes/Game.js'
 
 const game = new Game()
 
