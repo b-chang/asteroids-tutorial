@@ -7,5 +7,8 @@
     "start": "python -m SimpleHTTPServer 2222"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "lodash-es": "^4.17.11"
+  }
 }
