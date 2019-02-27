@@ -1,7 +1,7 @@
 import Canvas from '/js/utility/Canvas.js'
 import MovingObject from '/js/classes/movingObject.js'
 
-const MIN_ASTEROIDS = 10;
+const MIN_ASTEROIDS = 5;
 
 export default class Game {
   constructor() {
@@ -11,7 +11,7 @@ export default class Game {
 
   ensureMinAsteroids() {
     while(this.asteroids.length < MIN_ASTEROIDS) {
-      this.asteroids.push(MovingObject.createRandom())
+      this.asteroids.push(MovingObject.createRandomOutsideCanvas())
     };
   }
 
