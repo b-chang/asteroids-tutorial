@@ -6,13 +6,15 @@ const { random, PI, cos, sin } = Math;
 const MAX_SPEED = 2;
 const defaultColor = 'white';
 const defaultRadius = 20;
+const NULL_VECTOR = {x: 0, y: 0}
 
 export default class MovingObject {
-  constructor(position, velocity, radius=defaultRadius, color=defaultColor) {
+  color = defaultColor
+
+  constructor(position=NULL_VECTOR, velocity=NULL_VECTOR, radius=defaultRadius) {
     this.position = position;
     this.velocity = velocity;
     this.radius = radius;
-    this.color = color;
   }
 
   move() {
