@@ -33,6 +33,7 @@ export default class Ship extends MovingObject {
 
   move() {
     this.turn()
+    this.wrap()
     const acceleration = this.acceleration()
     this.position.x += this.velocity.x
     this.position.y += this.velocity.y
@@ -46,6 +47,23 @@ export default class Ship extends MovingObject {
     return {
       x: position.x + radius*cos(direction),
       y: position.y + radius*sin(direction)
+    }
+  }
+
+  wrap() {
+    if(!this.isOutOfBounds()) { return }
+
+    let shipBB = this.getBoundingBox()
+    let canvasBB = Canvas.getBoundingBox()
+
+    if(shipBB.isRightOf(canvasBB)) {
+      this.position.x = 0 - this.radius
+    } else if (shipBB.isLeftOf(canvasBB)) {
+      this.position.x = 500 + this.radius
+    } else if (shipBB.isAbove(canvasBB)) {
+      this.position.y = 500 + this.radius
+    } else if (shipBB.isBelow(canvasBB)) {
+      this.position.y = 0 - this.radius
     }
   }
 

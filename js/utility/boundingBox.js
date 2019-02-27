@@ -6,11 +6,27 @@ export default class BoundingBox {
 
   intersects(boundingBox) {
     return !(
-      this.max.x < boundingBox.min.x ||
-      this.min.x > boundingBox.max.x ||
-      this.max.y < boundingBox.min.y ||
-      this.min.y > boundingBox.max.y
-    );
+      this.isRightOf(boundingBox) ||
+      this.isLeftOf(boundingBox) ||
+      this.isAbove(boundingBox) ||
+      this.isBelow(boundingBox)
+    )
+  }
+
+  isLeftOf(boundingBox) {
+    return this.max.x < boundingBox.min.x
+  }
+
+  isRightOf(boundingBox) {
+    return this.min.x > boundingBox.max.x
+  }
+
+  isBelow(boundingBox) {
+    return this.min.y > boundingBox.max.y
+  }
+
+  isAbove(boundingBox) {
+    return this.max.y < boundingBox.min.y
   }
 
 };
