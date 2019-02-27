@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "keymaster": "^1.6.2",
     "lodash-es": "^4.17.11"
   }
 }

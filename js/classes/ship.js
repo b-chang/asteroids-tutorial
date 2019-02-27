@@ -1,5 +1,6 @@
 import MovingObject from '/js/classes/movingObject.js'
 import Canvas from '/js/utility/Canvas.js'
+import key from '/js/utility/keymaster.js'
 const { cos, sin } = Math
 
 export default class Ship extends MovingObject {
@@ -8,7 +9,11 @@ export default class Ship extends MovingObject {
 
   acceleration() {
     const { direction } = this
-    const magnitude = .1
+
+    let magnitude = 0;
+    if(key.isPressed('up')) {
+      magnitude = .1
+    }
 
     return {
       x: magnitude*cos(direction),
@@ -16,7 +21,18 @@ export default class Ship extends MovingObject {
     }
   }
 
+  turn() {
+    if(key.isPressed('left')) {
+      this.direction -= .1
+    }
+
+    if(key.isPressed('right')) {
+      this.direction += .1
+    }
+  }
+
   move() {
+    this.turn()
     const acceleration = this.acceleration()
     this.position.x += this.velocity.x
     this.position.y += this.velocity.y
