@@ -1,7 +1,9 @@
 import MovingObject from '/js/classes/movingObject.js'
 import Canvas from '/js/utility/Canvas.js'
+import Vec2 from '/js/utility/Vec2.js'
 import key from '/js/utility/keymaster.js'
-const { cos, sin } = Math
+const { cos, sin, random, PI } = Math
+const BULLET_SPEED = 6
 
 export default class Ship extends MovingObject {
   direction = 0
@@ -65,6 +67,23 @@ export default class Ship extends MovingObject {
     } else if (shipBB.isBelow(canvasBB)) {
       this.position.y = 0 - this.radius
     }
+  }
+
+  shoot() {
+    const { direction } = this
+    const frontPosition = this.frontPosition()
+
+    const velocity = Vec2.fromMagnitudeAndDirection({
+      magnitude: BULLET_SPEED,
+      direction,
+    })
+
+    return new MovingObject(
+      frontPosition,
+      velocity,
+      2,
+      this.color,
+    )
   }
 
   draw() {

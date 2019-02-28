@@ -11,10 +11,11 @@ const NULL_VECTOR = {x: 0, y: 0}
 export default class MovingObject {
   color = defaultColor
 
-  constructor(position=NULL_VECTOR, velocity=NULL_VECTOR, radius=defaultRadius) {
+  constructor(position=NULL_VECTOR, velocity=NULL_VECTOR, radius=defaultRadius, color) {
     this.position = position;
     this.velocity = velocity;
     this.radius = radius;
+    this.color = color;
   }
 
   move() {
@@ -26,7 +27,8 @@ export default class MovingObject {
     Canvas.drawCircle({
       x: this.position.x,
       y: this.position.y,
-      radius: this.radius
+      radius: this.radius,
+      color: this.color
     })
   }
 
